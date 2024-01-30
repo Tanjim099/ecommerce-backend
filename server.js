@@ -27,15 +27,25 @@ const app = express();
 app.use(cookieParser())
 
 //middelwares
-const corsOptions = {
-    origin: 'https://ecommerce-app-liart-three.vercel.app/',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    http: true,
-    // maxAge: 7 * 24 * 60 * 60 * 1000,
-    optionsSuccessStatus: 204,
-}
-app.use(cors(corsOptions));
+// const corsOptions = {
+//     origin: 'https://ecommerce-app-liart-three.vercel.app/',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true,
+//     http: true,
+//     // maxAge: 7 * 24 * 60 * 60 * 1000,
+//     optionsSuccessStatus: 204,
+// }
+
+app.use(
+    cors({
+        origin: "https://ecommerce-app-liart-three.vercel.app/",
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        optionsSuccessStatus: 204,
+    })
+);
+// app.use(cors(corsOptions));
 // app.use(cors)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
