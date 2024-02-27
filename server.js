@@ -14,15 +14,16 @@ import statsRoutes from "./routes/miscellaneousRoute.js";
 import paymentRoutes from "./routes/paymentRoute.js";
 
 
+//rest object
+const app = express();
+
+
 //configure env
 dotenv.config();
 
 
 //db config
 connectDB()
-
-//rest object
-const app = express();
 
 app.use(cookieParser())
 
@@ -31,7 +32,6 @@ const corsOptions = {
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
-    http: true,
     // maxAge: 7 * 24 * 60 * 60 * 1000,
     optionsSuccessStatus: 204,
 }
