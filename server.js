@@ -28,23 +28,22 @@ connectDB()
 app.use(cookieParser())
 
 //middelwares
+// const corsOptions = {
+//     origin: '*',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true,
+//     // maxAge: 7 * 24 * 60 * 60 * 1000,
+//     optionsSuccessStatus: 204,
+// }
+
 const corsOptions = {
-    origin: '*',
+    origin: 'https://ecommerce-app-liart-three.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     // maxAge: 7 * 24 * 60 * 60 * 1000,
     optionsSuccessStatus: 204,
-}
+};
 
-// app.use(
-//     cors({
-//         origin: 'http://127.0.0.1:5173/',
-//         credentials: true,
-//         methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-//         allowedHeaders: ['Content-Type', 'Authorization'],
-//         optionsSuccessStatus: 204,
-//     })
-// );
 app.use(cors(corsOptions));
 // app.use(cors)
 app.use(express.json());
